@@ -1,0 +1,28 @@
+import matplotlib.pyplot as plt
+import random
+
+def md(a, b):
+    return  float((a+b)/2);
+
+def main():
+    random.seed()
+    lados = 4
+    pontos = 1000000
+    x = 0.0
+    y = 0.0
+    x0 = [1.0, 0.0, 0.0, 1.0]
+    y0 = [0.0, 1.0, 0.0, 1.0]
+    xp = []
+    yp = []
+
+    for i in range (0, pontos - 2):
+        r = random.randint(0, lados-2)
+        xp.append(md(x, x0[r]))
+        yp.append(md(y, y0[r]))
+        x = xp[i]
+        y = yp[i]
+
+    plt.plot(xp, yp, '.')
+    plt.show()
+
+main()
